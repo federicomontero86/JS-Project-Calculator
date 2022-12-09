@@ -34,11 +34,11 @@ body {
   border-bottom: 1px rgba(36, 36, 36, 0.116) solid;
 }
 
-#Display-area .currentInput {
+#Display-area .input {
   /* display: flex; */
   text-align: right;
   height: 8vh;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: xx-large;
   line-height: 2;
   word-wrap: break-word;
@@ -68,7 +68,7 @@ body {
   font-size: x-large;
 }
 
-.keypad-btns .blue_btn {
+.keypad-btns .op_btn {
   background-color: rgb(159, 189, 235);
 }
 .keypad-btns .green_btn {
