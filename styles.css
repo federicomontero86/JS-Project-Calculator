@@ -39,17 +39,17 @@ body {
   text-align: right;
   height: 8vh;
   color: rgb(0, 0, 0);
-  font-size: xx-large;
+  font-size: x-large;
   line-height: 2;
   word-wrap: break-word;
 }
 
-#Display-area .answerScreen {
+#Display-area .resultScreen {
   text-align: right;
   color: rgb(0, 0, 0);
-  height: 7px;
-  line-height: 3;
-  font-size: larger;
+  /* height: 7px; */
+  /* line-height: 3; */
+  font-size: xx-large;
 }
 
 .keypad-btns {
