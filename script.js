@@ -44,7 +44,6 @@ const populateInput = function (numbers) {
       ) {
         displayValue.push(number.value);
         input.innerHTML = displayValue.join("");
-        console.log(displayValue);
       }
     });
   });
@@ -55,7 +54,6 @@ populateInput(numberButtons);
 operatorButtons.forEach((operator) => {
   operator.addEventListener("click", () => {
     const inputValue = displayValue.join("");
-    console.log(inputValue);
     const operatorUsed = operator.value;
     if (operator.value === "%" || operator.id === "erase") {
       return;
@@ -65,7 +63,6 @@ operatorButtons.forEach((operator) => {
     }
     if (operator.id === "evaluate") {
       const operationArr = inputValue.split(" ");
-      console.log(operationArr);
       const operationArrFixed = operationArr.map((item) => {
         if (item !== "+" && item !== "-" && item !== "/" && item !== "*") {
           return Number(item);
@@ -75,7 +72,6 @@ operatorButtons.forEach((operator) => {
       });
       const [n1, op, n2] = operationArrFixed;
       const result = operate(op, n1, n2);
-      console.log(result);
       !result
         ? (resultScreen.innerHTML = "Invalid Operation")
         : (resultScreen.innerHTML = result);
