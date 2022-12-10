@@ -72,7 +72,7 @@ operatorButtons.forEach((operator) => {
       });
       const [n1, op, n2] = operationArrFixed;
       const result = operate(op, n1, n2);
-      !result
+      !result && result !== 0
         ? (resultScreen.innerHTML = "Invalid Operation")
         : (resultScreen.innerHTML = result);
       input.innerHTML = "";
