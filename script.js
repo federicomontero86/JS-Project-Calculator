@@ -55,6 +55,28 @@ operatorButtons.forEach((operator) => {
   operator.addEventListener("click", () => {
     const inputValue = displayValue.join("");
     const operatorUsed = operator.value;
+    if (
+      inputValue.includes("+") ||
+      inputValue.includes("-") ||
+      inputValue.includes("/") ||
+      inputValue.includes("*")
+    ) {
+      const operationArr = inputValue.split(" ");
+      const operationArrFixed = operationArr.map((item) => {
+        if (item !== "+" && item !== "-" && item !== "/" && item !== "*") {
+          return Number(item);
+        } else {
+          return item;
+        }
+      });
+      const [n1, op, n2] = operationArrFixed;
+      const result = operate(op, n1, n2);
+      !result && result !== 0
+        ? (resultScreen.innerHTML = "Invalid Operation")
+        : (resultScreen.innerHTML = result);
+      input.innerHTML = "";
+      displayValue = [result];
+    }
     if (operator.value === "%" || operator.id === "erase") {
       return;
     } else {
