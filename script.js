@@ -49,6 +49,44 @@ const populateInput = function (numbers) {
       // console.log(displayValue[displayValue.length - 1]);
       console.log(number.value);
       if (
+        number.value === "." &&
+        displayValue.includes(".") &&
+        !(
+          displayValue.includes(" * ") ||
+          displayValue.includes(" / ") ||
+          displayValue.includes(" - ") ||
+          displayValue.includes(" + ")
+        )
+      ) {
+        return;
+      }
+      if (
+        number.value === "." &&
+        (displayValue.includes(" * ") ||
+          displayValue.includes(" / ") ||
+          displayValue.includes(" - ") ||
+          displayValue.includes(" + ")) &&
+        displayValue[displayValue.length - 1] === "."
+      ) {
+        return;
+      }
+      const filteredArr = displayValue.filter(
+        (char) =>
+          char === "." ||
+          char === " + " ||
+          char === " - " ||
+          char === " * " ||
+          char === " / "
+      );
+      console.log(filteredArr);
+      if (number.value === "." && filteredArr.length === 3) {
+        return;
+      }
+      console.log(displayValue);
+      if (number.value === "." && filteredArr.indexOf(".") === 1) {
+        return;
+      }
+      if (
         number.value === "0" &&
         displayValue[displayValue.length - 1] === "0" &&
         (displayValue.includes(" * ") ||
@@ -59,7 +97,7 @@ const populateInput = function (numbers) {
         console.log(number.value);
         console.log("hola");
         console.log(displayValue);
-        const filterDots = displayValue.filter(
+        const filteredArr = displayValue.filter(
           (char) =>
             char === "." ||
             char === " + " ||
@@ -67,13 +105,13 @@ const populateInput = function (numbers) {
             char === " * " ||
             char === " / "
         );
-        console.log(filterDots);
-        if (filterDots.length === 3) {
+        console.log(filteredArr);
+        if (filteredArr.length === 3) {
           displayValue.push(number.value);
           input.innerHTML = displayValue.join("");
         } else if (
-          filterDots.length === 2 &&
-          filterDots[filterDots.length - 1] === "."
+          filteredArr.length === 2 &&
+          filteredArr[filteredArr.length - 1] === "."
         ) {
           displayValue.push(number.value);
           input.innerHTML = displayValue.join("");
