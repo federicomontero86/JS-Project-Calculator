@@ -46,8 +46,6 @@ const populateInput = function (numbers) {
       ) {
         return;
       }
-      // console.log(displayValue[displayValue.length - 1]);
-      console.log(number.value);
       if (
         number.value === "." &&
         displayValue.includes(".") &&
@@ -78,11 +76,9 @@ const populateInput = function (numbers) {
           char === " * " ||
           char === " / "
       );
-      console.log(filteredArr);
       if (number.value === "." && filteredArr.length === 3) {
         return;
       }
-      console.log(displayValue);
       if (number.value === "." && filteredArr.indexOf(".") === 1) {
         return;
       }
@@ -94,9 +90,6 @@ const populateInput = function (numbers) {
           displayValue.includes(" - ") ||
           displayValue.includes(" + "))
       ) {
-        console.log(number.value);
-        console.log("hola");
-        console.log(displayValue);
         const filteredArr = displayValue.filter(
           (char) =>
             char === "." ||
@@ -105,7 +98,6 @@ const populateInput = function (numbers) {
             char === " * " ||
             char === " / "
         );
-        console.log(filteredArr);
         if (filteredArr.length === 3) {
           displayValue.push(number.value);
           input.innerHTML = displayValue.join("");
@@ -127,7 +119,6 @@ const populateInput = function (numbers) {
           displayValue.includes(" - ") ||
           displayValue.includes(" + "))
       ) {
-        console.log("hola");
         return;
       }
       if (
@@ -137,7 +128,6 @@ const populateInput = function (numbers) {
       ) {
         displayValue.push(number.value);
         input.innerHTML = displayValue.join("");
-        console.log(displayValue);
       }
     });
   });
@@ -173,7 +163,6 @@ operatorButtons.forEach((operator) => {
         }
       });
       const [n1, op, n2] = operationArrFixed;
-      console.log(n1, op, n2);
       const result = operate(op, n1, n2);
       !result && result !== 0
         ? (resultScreen.innerHTML = "Invalid Operation")
@@ -188,13 +177,10 @@ operatorButtons.forEach((operator) => {
       input.innerHTML = displayValue.join("");
     }
     if (operator.id === "evaluate") {
-      console.log(inputValue);
       const operationArr = inputValue.split(" ");
-      console.log(operationArr);
       if (operationArr.includes("")) {
         operationArr.splice(1, 1);
       }
-      console.log(operationArr);
       const operationArrFixed = operationArr.map((item) => {
         if (item !== "+" && item !== "-" && item !== "/" && item !== "*") {
           return Number(item);
@@ -203,10 +189,8 @@ operatorButtons.forEach((operator) => {
         }
       });
       const [n1, op, n2] = operationArrFixed;
-      console.log(n1, op, n2);
       let result = operate(op, n1, n2).toFixed(6).replace(/0+$/, "");
       const resultArr = result.split("");
-      console.log(resultArr);
       resultArr[resultArr.length - 1] === "." ? resultArr.pop() : resultArr;
       result = resultArr.join("");
       !result && result !== 0
@@ -215,7 +199,6 @@ operatorButtons.forEach((operator) => {
       input.innerHTML = "";
       displayValue = [];
       resultValue = result;
-      console.log(resultValue);
     }
   });
 });
